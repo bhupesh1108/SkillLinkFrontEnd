@@ -39,13 +39,14 @@ const handleSubmit = async (e) => {
         const response = await axios.post('http://localhost:7373/serviceprovider/register', formData).then((response) => {
             const result = response.data
           //   const status = response.status
-              console.log(response.data);
-            //   const { userId, userName, emailId, password, role } = result
+              
             //   console.log(userId)
            
+
             if (response.status===200){
                 // toast.warning("success")
-                alert("success")
+                 
+                  alert("success")
                 navigate("/serviceprovider")
             }else{
                 alert("Wrong Credential")

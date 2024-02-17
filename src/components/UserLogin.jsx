@@ -42,6 +42,8 @@ const handleSubmit = async (e) => {
               sessionStorage["userId"]=userid;
               sessionStorage["username"]=username;
               sessionStorage["namefirst"]=namefirst;
+              sessionStorage["namelast"]=namelast;
+              sessionStorage["phonenumber"]=phonenumber;
               sessionStorage["status"]="success";
              // setIsLoggedIn(true);
                 // toast.warning("success")
@@ -87,7 +89,7 @@ const handleSubmit = async (e) => {
 
               <div className="login-center-options">
              
-                <a href="#" className="forgot-pass-link">
+                <a href="forgotpassword" className="forgot-pass-link">
                   Forgot password?
                 </a>
               </div>

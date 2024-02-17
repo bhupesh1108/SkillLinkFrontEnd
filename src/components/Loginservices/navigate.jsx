@@ -29,7 +29,7 @@ export const Navigate = (props) => {
             <span className="icon-bar"></span>{" "}
           </button>
           <a className="navbar-brand page-scroll" href="#page-top">
-          👤{username}
+          👤{namefirst}
           </a>{" "}
         </div>
        

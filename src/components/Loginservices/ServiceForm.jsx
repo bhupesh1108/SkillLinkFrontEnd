@@ -11,7 +11,10 @@ const ServiceForm=()=>{
         wages: '',
         address: '',
         date: '',
-        userId:userId
+        userId:userId,
+        namefirst:sessionStorage["namefirst"],
+        namelast:sessionStorage["namelast"],
+        phonenumber:sessionStorage["phonenumber"]
     });
 
     const handleChange = (e) => {

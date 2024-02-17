@@ -17,6 +17,13 @@ import JsonData from "./data/data.json";
 import LandingPage from "./components/Landingpage";
 import ServiceForm from './components/Loginservices/ServiceForm';
 import ServiceRegistration from "./components/serviceProviderRegistration"
+import ServiceTable from './components/ServiceProvider/ServiceList';
+
+import { ServiceproviderPage } from './components/ServiceProvider/ServiceProviderPage';
+import BookingTable from './components/Loginservices/BookingList';
+import ConfirmTable from './components/ServiceProvider/ConfirmList';
+import ForgotPassword from './components/Loginservices/forgotPassword';
+
 
 const App = () => {
 
@@ -34,6 +41,14 @@ const App = () => {
     const status=sessionStorage["status"]
     return status==="success"?<ServiceForm/>:<Login/>
   }
+  const AuthorizedBookingList=()=>{
+    const status=sessionStorage["status"]
+    return status==="success"?<BookingTable/>:<Login/>
+  }
+  const Authorizedserviceprovider=()=>{
+    const status=sessionStorage["status"]
+    return status ==="ServiceLoginsuccess"?<ServiceproviderPage/>:<ServiceLogin/>
+  }
   return (
     <div>
    
@@ -48,6 +63,10 @@ const App = () => {
       <Route path="/serviceform" element={<Authorizedserviceform/>}/>
       <Route path="/serviceprovider" element={<ServiceLogin></ServiceLogin>}/>
       <Route path="/ServiceProviderregister" element={<ServiceRegistration></ServiceRegistration>}/>
+      <Route path="/data"   element={<Authorizedserviceprovider/>}/>
+      <Route path="/bookedservices" element={<AuthorizedBookingList/>}/>
+      <Route path="/confirmList" element={<ConfirmTable/>}/>
+      <Route path="/forgotpassword" element={<ForgotPassword/>}/>
     </Routes>
     </BrowserRouter>
     </div>
