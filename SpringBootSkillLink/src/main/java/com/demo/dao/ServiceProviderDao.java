@@ -24,6 +24,11 @@ public interface ServiceProviderDao extends JpaRepository<ServiceProvider, Integ
 	@Modifying
 	@Query(value="update serviceproviders set rating=:avg where serviceproviderid=:sid",nativeQuery=true)
 	int updateRating(int sid, float avg);
+	
+	@Modifying
+	@Query(value="update serviceproviders set password=:newpass where username=:sid",nativeQuery=true)
+
+	int changepss(String sid, String newpass);
 
 	
 	

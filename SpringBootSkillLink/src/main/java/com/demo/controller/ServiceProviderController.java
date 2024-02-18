@@ -1,6 +1,7 @@
 package com.demo.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -78,4 +79,20 @@ public class ServiceProviderController {
 		System.out.println(clist);
 		return ResponseEntity.ok(clist);
 	}
+	
+//	@PostMapping("/change/{sid}")
+//	public ResponseEntity<?> changepass(@PathVariable String sid,@RequestBody String newpass){
+//		
+//		
+//		return ResponseEntity.ok("success");
+//	}
+	 @PostMapping("/change")
+	    public ResponseEntity<String> changePassword(@RequestBody Map<String, String> request) {
+	        String email = request.get("email");
+	        String newPassword = request.get("password");
+
+	        // Your implementation...
+	        ServiceProviderObj.changepass(email,newPassword);
+	        return ResponseEntity.ok("Password changed successfully");
+	    }
 }

@@ -55,6 +55,7 @@ public class ConfirmList {
 		this.sid = sid;
 	}
 	
+	
 	public String getNamelast() {
 		return namelast;
 	}

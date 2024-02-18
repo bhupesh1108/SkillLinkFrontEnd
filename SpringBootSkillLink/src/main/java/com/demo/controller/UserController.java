@@ -90,8 +90,12 @@ public class UserController {
 		return ResponseEntity.ok("success");
 	}
 	
-	
-	
+	@PostMapping("/change/{uid}")
+	public ResponseEntity<?> changepass(@PathVariable String uid,@RequestBody String newpass){
+		userservice.changepass(uid,newpass);
+		
+		return ResponseEntity.ok("success");
+	}
 	
 	
 	

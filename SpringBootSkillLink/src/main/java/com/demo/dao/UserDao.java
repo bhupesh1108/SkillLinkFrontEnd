@@ -1,6 +1,9 @@
 package com.demo.dao;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +15,10 @@ public interface UserDao extends JpaRepository<User,Integer> {
 
 	@Query(value="select*from users where username=:username&&password=:password" ,nativeQuery=true)
 	User validate(String username, String password);
+
+	@Modifying
+	@Query(value="update users set password=:newpass where username=:uid",nativeQuery=true)
+	int changepass(String uid, String newpass);
 
 	
 

@@ -92,7 +92,7 @@ const handleSubmit = async (e) => {
 
               <div className="login-center-options">
              
-                <a href="#" className="forgot-pass-link">
+                <a href="seviceforgotpass" className="forgot-pass-link">
                   Forgot password?
                 </a>
               </div>

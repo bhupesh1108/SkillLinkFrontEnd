@@ -12,6 +12,8 @@ public interface UserService {
 
 	List<User> getAll();
 
+	void changepass(String uid, String newpass);
+
 
 
 	

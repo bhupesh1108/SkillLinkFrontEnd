@@ -16,4 +16,6 @@ public interface ServiceProviderServ {
 
 	void updateRating(int sid, float avg);
 
+	void changepass(String sid, String newpass);
+
 }

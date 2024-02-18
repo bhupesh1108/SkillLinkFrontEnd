@@ -46,4 +46,13 @@ public class ServiceProviderServImpl implements ServiceProviderServ{
 		 System.out.println("Rows affected: " + rowaffected);
 	}
 
+	@Override
+	@Transactional
+	public void changepass(String sid, String newpass) {
+		// TODO Auto-generated method stub
+		
+		int rowaffect=spdao.changepss(sid,newpass);
+		System.out.println(rowaffect);
+	}
+
 }

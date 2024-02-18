@@ -24,6 +24,7 @@ import BookingTable from './components/Loginservices/BookingList';
 import ConfirmTable from './components/ServiceProvider/ConfirmList';
 import ForgotPassword from './components/Loginservices/forgotPassword';
 import FeedbackForm from './components/Loginservices/Rating';
+import ServiceForgotPassword from './components/ServiceProvider/ServiceForgotPassword';
 
 
 const App = () => {
@@ -73,6 +74,7 @@ const App = () => {
       <Route path="/confirmList" element={<ConfirmTable/>}/>
       <Route path="/forgotpassword" element={<ForgotPassword/>}/>
       <Route path="/feedback/:id/:name" element={<FeedbackForm/>}/>
+      <Route path="/seviceforgotpass" element={<ServiceForgotPassword/>}/>
     </Routes>
     </BrowserRouter>
     </div>

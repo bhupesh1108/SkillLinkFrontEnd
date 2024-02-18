@@ -2,6 +2,8 @@ package com.demo.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +57,13 @@ public class UserServiceImpl implements UserService {
 //		// TODO Auto-generated method stub
 //		return false;
 //	}
+	@Override
+	@Transactional
+	public void changepass(String uid, String newpass) {
+		// TODO Auto-generated method stub
+		int rowupdated=userdao.changepass(uid,newpass);
+		System.out.println(rowupdated);
+	}
 	
 	
 
