@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navigate } from './navigate';
 import { BookingNavbar } from './BookingListNavBar';
+import FeedbackForm from './Rating';
 export default function BookingTable() {
   const navigate = useNavigate();
   const [slist, setslist] = useState([]);
@@ -53,6 +54,7 @@ export default function BookingTable() {
           "http://localhost:7373/bookingList/getall/" +
             sessionStorage["userId"]
         );
+
         console.log(result.data);
         setslist([...result.data]);
        
@@ -69,6 +71,7 @@ export default function BookingTable() {
       try {
        
         await axios.post("http://localhost:7373/bookingList/status/" + bookid, a);
+        
         
         await axios.delete("http://localhost:7373/bookingList/removedata/" + requid);
         // Assuming you want to navigate after a successful request
@@ -111,6 +114,7 @@ export default function BookingTable() {
       {/* <th>checkbox</th> */}
       <th>Confirm</th>
       <th>Status</th>
+      <th scope="col">Rating</th>
     </tr>
   </thead>
   <tbody>
@@ -137,16 +141,18 @@ export default function BookingTable() {
 >
   confirm
 </button>
-
+ 
 
 &nbsp;&nbsp;&nbsp;
         
-        {/* <Link to={`/view/${ob.pid}`}>
-        <button type="button" name="btn" id="view" className="btn btn-info"  >Reject</button>
-        </Link> */}
+       
       </td>
       <td>{ob.status}</td>
+      <Link to={`/feedback/${ob.sid}/${ob.namefirst}`}>
+        <button type="button" name="btn" id="view" className="btn btn-info"  >Rating</button>
+        </Link>
     </tr>)}
+
     
   </tbody>
 </table>

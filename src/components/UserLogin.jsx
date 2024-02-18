@@ -52,7 +52,7 @@ const handleSubmit = async (e) => {
             }else{
                 alert("Wrong Credential")
                 // toast.warning("wrong")
-                navigate("/registration")
+                navigate("/login")
             }
         
            }   )

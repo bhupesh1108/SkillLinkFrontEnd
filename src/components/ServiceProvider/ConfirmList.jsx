@@ -43,34 +43,14 @@ export default function ConfirmTable() {
     fetchData();
   }, []); // Empty dependency array ensures the effect runs only once on mount
 
-//   useEffect(() => {
-//     const postData = async () => {
-//       try {
-//         // Use the updated `blist` after setting userId
-//         await axios.post("http://localhost:7373/bookingList/addData", blist);
-//         console.log("After axios.post");
 
-//         // Assuming you want to navigate after a successful request
-//         navigate("");
-//       } catch (error) {
-//         console.error('Error:', error);
-//       }
-//     };
-
-//     // Check if userid is truthy before making the POST request
-//     if (blist.userid) {
-//       postData();
-//     }
-//   }, [blist.userid, navigate]);
 
   
 
   return (
     <div>
     <br></br>
-    {/* <Link to="/form">
-       <button type="button" name="btn" id="btn" className="btn btn-success"> Add new Product</button>
-    </Link> */}
+    
         <table className="table table-striped">
   <thead>
     <tr>
@@ -98,19 +78,6 @@ export default function ConfirmTable() {
       {/* <input type='checkbox' ={()=>handleUser(ob.userId)} ></input> * */}
       <td> 
 
-        {/* <button type="button" name="btn" id="delete"  className="btn btn-danger" onClick={()=>{deleteProduct(ob.pid)}}>delete</button>&nbsp;&nbsp;&nbsp; */}
-        {/* <Link to={`/edit/${ob.pid}`} state={{pdata:ob}}> */}
-     
-{/*     
-        <button
-  type="button"
-  name="userId"
-  className="btn btn-primary"
-  disabled={disabledButtons[ob.requirementId]}
-  onClick={()=>handleAccept(ob.userId,ob.requirementId)}
->
-  Accept
-</button> */}
 
 &nbsp;&nbsp;&nbsp;
 {/*         

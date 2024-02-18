@@ -23,6 +23,7 @@ import { ServiceproviderPage } from './components/ServiceProvider/ServiceProvide
 import BookingTable from './components/Loginservices/BookingList';
 import ConfirmTable from './components/ServiceProvider/ConfirmList';
 import ForgotPassword from './components/Loginservices/forgotPassword';
+import FeedbackForm from './components/Loginservices/Rating';
 
 
 const App = () => {
@@ -49,6 +50,10 @@ const App = () => {
     const status=sessionStorage["status"]
     return status ==="ServiceLoginsuccess"?<ServiceproviderPage/>:<ServiceLogin/>
   }
+  const AuthorizedconfirmTable=()=>{
+    const status=sessionStorage["status"]
+    return status==="ServiceLoginsuccess"?<ServiceproviderPage/>:<ConfirmTable/>
+  }
   return (
     <div>
    
@@ -67,6 +72,7 @@ const App = () => {
       <Route path="/bookedservices" element={<AuthorizedBookingList/>}/>
       <Route path="/confirmList" element={<ConfirmTable/>}/>
       <Route path="/forgotpassword" element={<ForgotPassword/>}/>
+      <Route path="/feedback/:id/:name" element={<FeedbackForm/>}/>
     </Routes>
     </BrowserRouter>
     </div>

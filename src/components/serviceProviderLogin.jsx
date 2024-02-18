@@ -36,7 +36,7 @@ const handleSubmit = async (e) => {
             //   const { userId, userName, emailId, password, role } = result
             //   console.log(userId)
             console.log(response.data);
-               const { serviceProviderID,namefirst, namelast, username, skills, wages ,phonenumber} = result
+               const { serviceProviderID,namefirst, namelast, username, skills, wages ,phonenumber,rating} = result
                console.log(serviceProviderID)
             if (response.status===200){
                 // toast.warning("success")
@@ -47,6 +47,7 @@ const handleSubmit = async (e) => {
                 sessionStorage["namelast"]=namelast
                 sessionStorage["username"]=username
                 sessionStorage["wages"]=wages
+                sessionStorage["rating"]=rating
                 sessionStorage["status"]="ServiceLoginsuccess"
 
                 alert("success")
@@ -54,7 +55,7 @@ const handleSubmit = async (e) => {
             }else{
                 alert("Wrong Credential")
                 // toast.warning("wrong")
-                navigate("/registration")
+                navigate("/serviceprovider")
             }
         
            }   )

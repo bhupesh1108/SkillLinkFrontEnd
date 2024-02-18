@@ -16,9 +16,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://your-api-endpoint/forgotpassword', {
-        email: email,
-      });
+      const response = await axios.post('');
 
       setMessage(response.data.message);
     } catch (error) {

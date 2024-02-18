@@ -13,13 +13,13 @@ export default function ServiceTable() {
     phonenumber: sessionStorage["phonenumber"],
     skills: sessionStorage["skills"],
     date:"",
-    rating: "",
+    rating: sessionStorage["rating"],
     address:"",
     userid: "",
     wages:"",
     requirementId:sessionStorage["reqID"]
   });
-
+  
   const handleAccept = (userId,requirementId,date,wages,address) => {
     if (!disabledButtons[requirementId]) {
       // Assuming `userId` is the user ID associated with the button
