@@ -2,6 +2,8 @@ package com.demo.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.demo.dao.ServiceProviderDao;
@@ -28,6 +30,20 @@ public class ServiceProviderServImpl implements ServiceProviderServ{
 	public ServiceProvider validate(String username, String password) {
 		return spdao.validateServiceProvider(username, password);
 		
+	}
+
+	@Override
+	public int getRating(int sid) {
+		// TODO Auto-generated method stub
+		return spdao.getRating(sid);
+	}
+
+	@Override
+	@Transactional
+	public void updateRating(int sid, float avg) {
+		// TODO Auto-generated method stub
+		int rowaffected=spdao.updateRating(sid,avg);
+		 System.out.println("Rows affected: " + rowaffected);
 	}
 
 }

@@ -12,4 +12,8 @@ public interface ServiceProviderServ {
 
 	ServiceProvider validate(String username, String password);
 
+	int getRating(int sid);
+
+	void updateRating(int sid, float avg);
+
 }

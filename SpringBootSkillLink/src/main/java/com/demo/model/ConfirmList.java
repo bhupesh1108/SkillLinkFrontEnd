@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -22,12 +24,14 @@ public class ConfirmList {
 	private String namefirst;
 	private String namelast;
 	private String  Phonenumber;
-	private int sid;
+	@OneToOne
+	@JoinColumn(name="Serviceproviderid")
+	private ServiceProvider sid;
 	public ConfirmList() {
 		super();
 	}
 	public ConfirmList(int confirmid, String wages, String address, String date, String namefirst, String phonenumber,
-			int sid) {
+			ServiceProvider sid) {
 		super();
 		this.confirmid = confirmid;
 		this.wages = wages;
@@ -39,7 +43,7 @@ public class ConfirmList {
 	}
 	
 	public ConfirmList(int confirmid, String wages, String address, String date, String namefirst, String namelast,
-			String phonenumber, int sid) {
+			String phonenumber, ServiceProvider sid) {
 		super();
 		this.confirmid = confirmid;
 		this.wages = wages;
@@ -93,10 +97,10 @@ public class ConfirmList {
 	public void setPhonenumber(String phonenumber) {
 		Phonenumber = phonenumber;
 	}
-	public int getSid() {
+	public ServiceProvider getSid() {
 		return sid;
 	}
-	public void setSid(int sid) {
+	public void setSid(ServiceProvider sid) {
 		this.sid = sid;
 	}
 	@Override

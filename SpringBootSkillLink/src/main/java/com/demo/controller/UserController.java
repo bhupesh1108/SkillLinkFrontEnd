@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.model.User;
 import com.demo.model.UserRequirement;
+import com.demo.service.ServiceProviderServ;
 import com.demo.service.UserRequirementService;
 import com.demo.service.UserService;
 
@@ -30,7 +31,8 @@ public class UserController {
 	private UserService userservice;
 	@Autowired
 	private UserRequirementService userRequire;
-	
+	@Autowired
+	private ServiceProviderServ servProv;
 	
 	@PostMapping("/registration")
 	public ResponseEntity<?> adduser(@RequestBody User u){
@@ -75,7 +77,18 @@ public class UserController {
 		return ResponseEntity.ok("data added successfully");
 	}
 	
+		
+	@PostMapping("/addRating/{sid}/{rate}")
+	public ResponseEntity<?>addrating(@PathVariable int sid ,@PathVariable int rate){
+		float rating=servProv.getRating(sid);
 
+		float avg=(rating+rate)/2;
+		System.out.println(avg);
+		System.out.println(rating);
+		System.out.println(rate);
+		servProv.updateRating(sid,avg);
+		return ResponseEntity.ok("success");
+	}
 	
 	
 	

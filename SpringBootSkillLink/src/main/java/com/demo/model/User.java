@@ -29,8 +29,10 @@ public class User {
 	private String Password;
 	private String Phonenumber;
 	private String Address;
-	
-	
+	@OneToMany(mappedBy="userid",cascade = CascadeType.ALL)
+	private  Set<BookingList> blist;
+	@OneToMany(mappedBy="userid",cascade = CascadeType.ALL)
+	private Set<UserRequirement> Reqlist;
 
 	public User() {
 		super();

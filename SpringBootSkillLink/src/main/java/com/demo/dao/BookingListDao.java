@@ -14,7 +14,7 @@ import com.demo.model.BookingList;
 @Repository
 public interface BookingListDao extends JpaRepository<BookingList,Integer> {
 
-	@Query(value="select*from BookingList where userid =:userID",nativeQuery=true)
+	@Query(value="select *from BookingList where userid =:userID",nativeQuery=true)
 	List<BookingList> getall(int userID);
 	
 	

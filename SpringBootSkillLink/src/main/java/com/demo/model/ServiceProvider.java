@@ -1,12 +1,15 @@
 package com.demo.model;
 
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,8 +25,14 @@ public class ServiceProvider {
 	private String Password;
 	private String Phonenumber;
 	private String Skills;
+	private float Rating;
 	private String Wages;
 	private String Address;
+	@OneToMany(mappedBy="sid",cascade = CascadeType.ALL)
+	private Set<ConfirmList> clist;
+	public ServiceProvider(int sid) {
+        Serviceproviderid = sid;
+    }
 	public ServiceProvider() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -41,6 +50,7 @@ public class ServiceProvider {
 		Address = address;
 	}
 	
+	
 	public ServiceProvider(int serviceproviderid, String namefirst, String namelast, String username, String password,
 			String phonenumber, String skills, String wages, String address) {
 		super();
@@ -54,10 +64,32 @@ public class ServiceProvider {
 		Wages = wages;
 		Address = address;
 	}
+	
+	public ServiceProvider(int serviceproviderid, String namefirst, String namelast, String username, String password,
+			String phonenumber, String skills, float rating, String wages, String address) {
+		super();
+		Serviceproviderid = serviceproviderid;
+		Namefirst = namefirst;
+		Namelast = namelast;
+		Username = username;
+		Password = password;
+		Phonenumber = phonenumber;
+		Skills = skills;
+		Rating = rating;
+		Wages = wages;
+		Address = address;
+	}
 	public ServiceProvider(String username, String password) {
 		super();
 		Username = username;
 		Password = password;
+	}
+	
+	public float getRating() {
+		return Rating;
+	}
+	public void setRating(float rating) {
+		Rating = rating;
 	}
 	public int getServiceProviderID() {
 		return Serviceproviderid;

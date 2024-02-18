@@ -28,8 +28,9 @@ public class UserRequirement {
 	private int Wages;
 	private String Address;
 	private String Date;
-	
-	private  int userid;
+	@OneToOne
+	@JoinColumn(name="Userid")
+	private  User userid;
 
 	
 	public UserRequirement() {
@@ -37,7 +38,7 @@ public class UserRequirement {
 	}
 
 	public UserRequirement(int requirementid, String namefirst, String namelast, String phonenumber, String skills,
-			int wages, String address, String date, int userid) {
+			int wages, String address, String date, User userid) {
 		super();
 		this.requirementid = requirementid;
 		Namefirst = namefirst;
@@ -51,7 +52,7 @@ public class UserRequirement {
 	}
 
 	public UserRequirement(String namefirst, String namelast, String phonenumber, String skills, int wages,
-			String address, String date, int userId) {
+			String address, String date, User userId) {
 		super();
 		Namefirst = namefirst;
 		Namelast = namelast;
@@ -127,11 +128,11 @@ public class UserRequirement {
 		Date = date;
 	}
 
-	public int getUserId() {
+	public User getUserId() {
 		return userid;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(User userId) {
 		this.userid = userId;
 	}
 

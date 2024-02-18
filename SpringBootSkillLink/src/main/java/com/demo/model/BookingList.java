@@ -15,8 +15,10 @@ public class BookingList {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false)
 	private int Bookingid;
-	
-	private int userid;
+	@OneToOne
+	@JoinColumn(name="Userid")
+	private User userid;
+//	private int userid;
 	private int sid;
 	private String Namefirst;
 	private String Namelast;
@@ -31,7 +33,7 @@ public class BookingList {
 	
 	
 	
-	public BookingList(int userid, int sid, String namefirst, String namelast, String phonenumber, String skills,
+	public BookingList(User userid, int sid, String namefirst, String namelast, String phonenumber, String skills,
 			String date, String rating, String status, String wages, String address, int requirementId) {
 		super();
 		this.userid = userid;
@@ -47,7 +49,7 @@ public class BookingList {
 		Address = address;
 		this.requirementId = requirementId;
 	}
-	public BookingList(int userid, int sid, String namefirst, String namelast, String phonenumber, String skills,
+	public BookingList(User userid, int sid, String namefirst, String namelast, String phonenumber, String skills,
 			String date, String rating, String status, int requirementId) {
 		super();
 		this.userid = userid;
@@ -65,7 +67,7 @@ public class BookingList {
 		super();
 		
 	}
-	public BookingList(int userid, int sid, String namefirst, String namelast, String phonenumber, String skills,
+	public BookingList(User userid, int sid, String namefirst, String namelast, String phonenumber, String skills,
 			String rating, String status, int requirementId) {
 		super();
 		this.userid = userid;
@@ -104,10 +106,10 @@ public class BookingList {
 	public void setBookingid(int bookingid) {
 		Bookingid = bookingid;
 	}
-	public int getUserid() {
+	public User getUserid() {
 		return userid;
 	}
-	public void setUserid(int userid) {
+	public void setUserid(User userid) {
 		this.userid = userid;
 	}
 	public int getSid() {

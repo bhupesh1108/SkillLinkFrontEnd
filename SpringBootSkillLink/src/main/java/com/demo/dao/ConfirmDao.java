@@ -11,7 +11,7 @@ import com.demo.model.ConfirmList;
 @Repository
 public interface ConfirmDao extends JpaRepository<ConfirmList,Integer> {
 
-	@Query(value="select *from confirmlist where sid=:sid",nativeQuery=true)
+	@Query(value="select *from confirmlist where serviceproviderid=:sid",nativeQuery=true)
 	List<ConfirmList> getList(int sid);
 
 }
