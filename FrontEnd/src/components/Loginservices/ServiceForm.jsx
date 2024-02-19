@@ -60,8 +60,8 @@ const ServiceForm = () => {
               <option value="Plumber">Plumber</option>
               <option value="Electrician">Electrician</option>
               <option value="Pest Controller">Pest Controller</option>
-              <option value="Electrician">Carpenter</option>
-              <option value="Pest Controller">Cleaner</option>
+              <option value="Carppenter">Carpenter</option>
+              <option value="Cleaner">Cleaner</option>
               {/* Add more options as needed */}
             </select>
           </div>
