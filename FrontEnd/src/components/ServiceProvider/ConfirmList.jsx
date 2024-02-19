@@ -49,6 +49,9 @@ export default function ConfirmTable() {
 
   return (
     <div>
+      <center>
+    <h1>BookedList</h1>
+    </center>
     <br></br>
     
         <table className="table table-striped">

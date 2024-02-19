@@ -26,26 +26,43 @@ export default function BookingTable() {
   //   console.log("inside refresh")
   //   navigate("/bookedservices")
   // }
+  // const handleAccept = async (bookingid, skill, wages, sid, date, address, requirementId) => {
+  //   console.log("Inside handleAccept " + bookingid + " " + wages + " " + sid + " " + date + " " + address);
+  
+  //   // Update blist with the necessary data
+  //   setblist({
+  //     ...blist,
+  //     date: date,
+  //     sid: sid,
+  //     wages: wages,
+  //     address: address
+  //   });
+  // console.log(blist)
+  //   setrequid(requirementId);
+  //   setbookid(bookingid);
+  
+  //   // Assuming `axios.post` is asynchronous, you can wait for it to finish before proceeding
+  //   await axios.post("http://localhost:7373/serviceprovider/addconfirmdata", blist);
+  // };
+  
   const handleAccept = async (bookingid, skill, wages, sid, date, address, requirementId) => {
     console.log("Inside handleAccept " + bookingid + " " + wages + " " + sid + " " + date + " " + address);
   
     // Update blist with the necessary data
-    setblist({
+    await setblist({
       ...blist,
       date: date,
       sid: sid,
       wages: wages,
       address: address
     });
-  console.log(blist)
+  
+    console.log(blist);
+  
     setrequid(requirementId);
     setbookid(bookingid);
-  
-    // Assuming `axios.post` is asynchronous, you can wait for it to finish before proceeding
-    await axios.post("http://localhost:7373/serviceprovider/addconfirmdata", blist);
   };
   
-
   const a="success";
   useEffect(() => {
     const fetchData = async () => {
@@ -66,15 +83,34 @@ export default function BookingTable() {
     fetchData();
   }, []); // Empty dependency array ensures the effect runs only once on mount
 
+  // useEffect(() => {
+  //   const postData = async () => {
+  //     try {
+       
+  //       await axios.post("http://localhost:7373/bookingList/status/" + bookid, a);
+        
+        
+  //       await axios.delete("http://localhost:7373/bookingList/removedata/" + requid);
+  //       // Assuming you want to navigate after a successful request
+  //     } catch (error) {
+  //       console.error('Error:', error);
+  //     }
+  //   };
+  
+  //   // Check if bookid and requid are truthy before making the POST request
+  //   if (bookid && requid) {
+  //     postData();
+  //   }
+  // }, [bookid, requid, navigate]);
+  
   useEffect(() => {
     const postData = async () => {
       try {
-       
+        await axios.post("http://localhost:7373/serviceprovider/addconfirmdata", blist);
         await axios.post("http://localhost:7373/bookingList/status/" + bookid, a);
-        
-        
         await axios.delete("http://localhost:7373/bookingList/removedata/" + requid);
         // Assuming you want to navigate after a successful request
+        navigate("/bookedservices");
       } catch (error) {
         console.error('Error:', error);
       }
@@ -84,9 +120,8 @@ export default function BookingTable() {
     if (bookid && requid) {
       postData();
     }
-  }, [bookid, requid, navigate]);
+  }, [bookid, requid, blist, navigate]);
   
-
   
 
   return (
